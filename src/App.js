@@ -1,5 +1,8 @@
 import React from 'react';
-import { Container, Header, Main, Filter, ListaCards, ListaCarrinho, Footer, GlobalStyle } from './style';
+import { Container, Header, Main, Filter, ListaCarrinho, Footer, GlobalStyle } from './style';
+import { ListaDeProdutos } from './components/ListaDeProdutos';
+import { Carrinho } from './components/Carrinho';
+
 
 function App() {
 
@@ -17,11 +20,9 @@ function App() {
 
       <Main>
 
-        <Filter></Filter>
+        <ListaDeProdutos />
 
-        <ListaCards></ListaCards>
-
-        <ListaCarrinho></ListaCarrinho>
+        <Carrinho />
 
       </Main>
 
@@ -30,7 +31,7 @@ function App() {
     </Container>
 
   );
-  
+
 }
 
 export default App;

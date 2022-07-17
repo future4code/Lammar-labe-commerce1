@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 
-export const Filtros = () => {
-
-
+export const Filtros = ({ minValue, maxValue, nome, handleFilterMin, handleFilterMax, handleFilterNome }) => {
 
 
 
     return (
 
-
+        <div>
+            <input placeholder='Min' type='number' value={minValue} onChange={handleFilterMin}/>
+            <input placeholder='Max' value={maxValue} type='number'onChange={handleFilterMax}/>
+            <input type='text' value={nome} onChange={handleFilterNome} />
+        </div>
     )
 
 }

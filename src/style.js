@@ -51,4 +51,9 @@ export const Footer = styled.footer`
 
 `
 
+export const ContainerLista = styled.div`
+    display: flex;
+
+`
+
 
