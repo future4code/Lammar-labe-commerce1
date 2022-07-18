@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ListaCards, ContainerLista } from '../style';
 import { arrayCards } from './../MockDeDados';
+import { Carrinho } from './Carrinho';
 import { Filtros } from './Filtros';
 
 
@@ -19,7 +20,7 @@ export const ListaDeProdutos = () => {
     const [filterHandle3, setFilterHandle3] = useState('')
     const [selected, setSelected] = useState(options[1].value);
     const [arrayCarrinho, setArrayCarrinho] = useState([])
-
+    const [contador, setContador] = useState(1)
 
 
     const newArray = arrayCards.filter((item, index, array) => {
@@ -55,6 +56,28 @@ export const ListaDeProdutos = () => {
     } else {
         orderedArray = newArray3.sort((a, b) => a.valor > b.valor ? 1 : -1)
     }
+
+
+    const listaDeItensCarrinho = arrayCarrinho.map((elemento, index) => {
+        const deletarItem = () => {
+            const novoArrayCarrinho = [...arrayCarrinho]
+            const deletar = novoArrayCarrinho.findIndex((itemExcluido) => {
+                return itemExcluido === elemento
+            })
+            novoArrayCarrinho.splice(deletar, 1)
+            setArrayCarrinho(novoArrayCarrinho)
+        }
+        return (
+            <div key={index}>
+                <p>{elemento.contador}</p>
+                <p>{elemento.nome}</p>
+                <p>{elemento.valor}</p>
+                <button onClick={deletarItem}>Remover</button>
+            </div>
+        )
+    })
+
+
 
     return (
 
@@ -104,7 +127,15 @@ export const ListaDeProdutos = () => {
 
                                 <span>{e.valor}</span>
 
-                                <button>Adicionar ao carrinho</button>
+                                <button onClick={(event) => {
+                                    event.preventDefault()
+                                    const novoItem = { contador: contador, nome: e.nome, valor: e.valor }
+                                    const novoArrayCarrinho = [...arrayCarrinho, novoItem]
+                                    setArrayCarrinho(novoArrayCarrinho)
+                                    setContador(contador + 1)
+
+
+                                }}>Adicionar ao carrinho</button>
 
                             </div>
 
@@ -115,6 +146,8 @@ export const ListaDeProdutos = () => {
                 </ListaCards>
 
             </ContainerLista>
+
+            <Carrinho itensCarrinho={listaDeItensCarrinho} />
 
         </div>
 
