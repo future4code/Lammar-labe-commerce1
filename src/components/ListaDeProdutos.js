@@ -20,7 +20,6 @@ export const ListaDeProdutos = () => {
     const [filterHandle3, setFilterHandle3] = useState('')
     const [selected, setSelected] = useState(options[1].value);
     const [arrayCarrinho, setArrayCarrinho] = useState([])
-    const [contador, setContador] = useState(1)
 
 
     const newArray = arrayCards.filter((item, index, array) => {
@@ -69,7 +68,7 @@ export const ListaDeProdutos = () => {
         }
         return (
             <div key={index}>
-                <p>{elemento.contador}</p>
+                <p>{elemento.quantidade}</p>
                 <p>{elemento.nome}</p>
                 <p>{elemento.valor}</p>
                 <button onClick={deletarItem}>Remover</button>
@@ -77,6 +76,10 @@ export const ListaDeProdutos = () => {
         )
     })
 
+    let valorTotal = 0
+    for (let item of arrayCarrinho) {
+        valorTotal += item.valor;
+    }
 
 
     return (
@@ -128,12 +131,11 @@ export const ListaDeProdutos = () => {
                                 <span>{e.valor}</span>
 
                                 <button onClick={(event) => {
+
                                     event.preventDefault()
-                                    const novoItem = { contador: contador, nome: e.nome, valor: e.valor }
+                                    const novoItem = { quantidade: 1, nome: e.nome, valor: e.valor }
                                     const novoArrayCarrinho = [...arrayCarrinho, novoItem]
                                     setArrayCarrinho(novoArrayCarrinho)
-                                    setContador(contador + 1)
-
 
                                 }}>Adicionar ao carrinho</button>
 
@@ -147,7 +149,7 @@ export const ListaDeProdutos = () => {
 
             </ContainerLista>
 
-            <Carrinho itensCarrinho={listaDeItensCarrinho} />
+            <Carrinho itensCarrinho={listaDeItensCarrinho} valorTotal={valorTotal} />
 
         </div>
 

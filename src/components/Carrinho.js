@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-export const Carrinho = ({ itensCarrinho }) => {
+export const Carrinho = ({ itensCarrinho, valorTotal }) => {
 
 
 
@@ -13,7 +13,7 @@ export const Carrinho = ({ itensCarrinho }) => {
             <div>
                 {itensCarrinho}
             </div>
-            <span>Valor Total:</span>
+            <span>Valor Total: {valorTotal} </span>
         </div>
     )
 
