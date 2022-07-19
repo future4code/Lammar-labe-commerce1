@@ -76,7 +76,6 @@ export const ListaDeProdutos = () => {
         )
     })
 
-
     let valorTotal = 0
     for (let item of arrayCarrinho) {
         valorTotal += item.valor;
