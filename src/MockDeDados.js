@@ -1,3 +1,5 @@
+import arma from './components/img/arma.png'
+
 export const arrayCards = [
     {id: '1', nome: 'produto1', valor: 138, img: 'https://img.elo7.com.br/product/main/36F76BB/camiseta-masculina-basica-nelville-streetwear-algodao-100.jpg'},
     {id: '2', nome: 'produto2', valor: 18, img: 'https://img.elo7.com.br/product/main/36F76BB/camiseta-masculina-basica-nelville-streetwear-algodao-100.jpg'},

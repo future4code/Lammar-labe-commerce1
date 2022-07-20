@@ -3,8 +3,12 @@ import { ListaCards, ContainerLista } from '../style';
 import { arrayCards } from './../MockDeDados';
 import { Carrinho } from './Carrinho';
 import { Filtros } from './Filtros';
-
-
+import arma from './img/arma.png'
+import foguete from './img/foguete.png'
+import foguete2 from './img/foguete2.png'
+import foguete3 from './img/foguete3.png'
+import lego from './img/lego.png'
+import robo from './img/robo.png'
 
 
 export const ListaDeProdutos = () => {
