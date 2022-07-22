@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Header, Main, Filter, ListaCarrinho, Footer, GlobalStyle } from './style';
 import { ListaDeProdutos } from './components/ListaDeProdutos';
 import { Carrinho } from './components/Carrinho';
+import logo from './img/logo.png'
+
 
 
 function App() {
@@ -13,20 +15,18 @@ function App() {
   return (
 
     <Container>
-
       <GlobalStyle />
 
-      <Header></Header>
-
-      <Main>
+      <Header>
+        <img src={logo}/>
+        <h1>AstroToys</h1>
+      </Header>
 
         <ListaDeProdutos />
 
-        <Carrinho />
-
-      </Main>
-
-      <Footer></Footer>
+      <Footer>
+        <p>&copy; 2022 AstroToys Ltda.</p>
+      </Footer>
 
     </Container>
 

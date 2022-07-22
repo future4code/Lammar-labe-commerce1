@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
+import { ListaCarrinho, itemCarrinho } from '../style';
 
 
 export const Carrinho = ({ itensCarrinho, valorTotal }) => {
 
 
-
-
     return (
 
-        <div>
-            <h1>Carrinho</h1>
-            <div>
-                {itensCarrinho}
-            </div>
+        <ListaCarrinho>
+            <h2>Carrinho</h2>
+            {itensCarrinho}
             <span>Valor Total: {valorTotal} </span>
-        </div>
+        </ListaCarrinho>
     )
 
 }

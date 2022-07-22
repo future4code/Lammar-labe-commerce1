@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import { ListaCards, ContainerLista } from '../style';
-import { arrayCards } from './../MockDeDados';
+import { ListaCards, ContainerLista, Main, HeaderCards, ItemCarrinho } from '../style';
 import { Carrinho } from './Carrinho';
 import { Filtros } from './Filtros';
-import arma from './img/arma.png'
-import foguete from './img/foguete.png'
-import foguete2 from './img/foguete2.png'
-import foguete3 from './img/foguete3.png'
-import lego from './img/lego.png'
-import robo from './img/robo.png'
+import { arrayCards } from './../MockDeDados';
+
 
 
 export const ListaDeProdutos = () => {
@@ -18,31 +13,27 @@ export const ListaDeProdutos = () => {
         { value: 'Menor Preço' },
     ];
 
-
     const [filterHandle, setFilterHandle] = useState('')
     const [filterHandle2, setFilterHandle2] = useState('')
     const [filterHandle3, setFilterHandle3] = useState('')
     const [selected, setSelected] = useState(options[1].value);
     const [arrayCarrinho, setArrayCarrinho] = useState([])
 
+    // Filtros
 
-    const newArray = arrayCards.filter((item, index, array) => {
+    const arrayFiltrado = arrayCards.filter((item, index, array) => {
         if (filterHandle === '') {
             return array
         } else {
             return item.nome.toLowerCase().includes(filterHandle.toLowerCase())
         }
-    })
-
-    const newArray2 = newArray.filter((item, index, array) => {
+    }).filter((item, index, array) => {
         if (filterHandle2 === '') {
             return array
         } else {
             return (item.valor <= filterHandle2)
         }
-    })
-
-    const newArray3 = newArray2.filter((item, index, array) => {
+    }).filter((item, index, array) => {
         if (filterHandle3 === '') {
             return array
         } else {
@@ -50,16 +41,22 @@ export const ListaDeProdutos = () => {
         }
     })
 
-    const qtdProdutos = newArray3.length
+    // Quantidade de produtos
+
+    const qtdProdutos = arrayFiltrado.length
+
+    // Ordernar por ordem crescente ou dedescente
 
     let orderedArray
 
     if (selected === 'Maior Preço') {
-        orderedArray = newArray3.sort((a, b) => a.valor < b.valor ? 1 : -1)
+        orderedArray = arrayFiltrado.sort((a, b) => a.valor < b.valor ? 1 : -1)
     } else {
-        orderedArray = newArray3.sort((a, b) => a.valor > b.valor ? 1 : -1)
+        orderedArray = arrayFiltrado.sort((a, b) => a.valor > b.valor ? 1 : -1)
     }
 
+
+    // Rezaderizar itens do carrinho
 
     const listaDeItensCarrinho = arrayCarrinho.map((elemento, index) => {
         const deletarItem = () => {
@@ -71,14 +68,16 @@ export const ListaDeProdutos = () => {
             setArrayCarrinho(novoArrayCarrinho)
         }
         return (
-            <div key={index}>
+            <ItemCarrinho key={index}>
                 <p>{elemento.quantidade}</p>
                 <p>{elemento.nome}</p>
                 <p>{elemento.valor}</p>
                 <button onClick={deletarItem}>Remover</button>
-            </div>
+            </ItemCarrinho>
         )
     })
+
+    // Somar os valores dos itens do carrinho
 
     let valorTotal = 0
     for (let item of arrayCarrinho) {
@@ -88,55 +87,45 @@ export const ListaDeProdutos = () => {
 
     return (
 
-        <div>
+        <Main>
 
-            <Filtros minValue={filterHandle3} nome={filterHandle} maxValue={filterHandle2} handleFilterNome={(e) => { setFilterHandle(e.target.value) }} handleFilterMax={(e) => { setFilterHandle2(e.target.value) }} handleFilterMin={(e) => { setFilterHandle3(e.target.value) }} />
+            <Filtros
+                nome={filterHandle}
+                minValue={filterHandle3}
+                maxValue={filterHandle2}
+                handleFilterNome={(e) => { setFilterHandle(e.target.value) }}
+                handleFilterMin={(e) => { setFilterHandle3(e.target.value) }}
+                handleFilterMax={(e) => { setFilterHandle2(e.target.value) }}
+            />
 
             <ContainerLista>
 
-                <div>
-
+                <HeaderCards>
                     <span>Quantidade de Produtos: {qtdProdutos}</span>
-
                     <div>
-
                         <label>Ordenar por:</label>
-
                         <select value={selected} onChange={(e) => { setSelected(e.target.value) }}>
-
                             {options.map((option, index) => (
-
                                 <option key={index} value={option.value}>
-
                                     {option.value}
-
                                 </option>
-
                             ))}
 
                         </select>
-
                     </div>
 
-                </div>
-
+                </HeaderCards>
+                
                 <ListaCards>
-
                     {orderedArray.map((e, i) => {
-
                         return (
-
                             <div key={i}>
-
                                 <img src={e.img} alt='imagemdoproduto' />
-
                                 <h2>{e.nome}</h2>
-
                                 <span>{e.valor}</span>
-
                                 <button onClick={(event) => {
-
                                     event.preventDefault()
+
                                     const novoItem = { quantidade: 1, nome: e.nome, valor: e.valor }
                                     const novoArrayCarrinho = [...arrayCarrinho, novoItem]
                                     setArrayCarrinho(novoArrayCarrinho)
@@ -155,7 +144,7 @@ export const ListaDeProdutos = () => {
 
             <Carrinho itensCarrinho={listaDeItensCarrinho} valorTotal={valorTotal} />
 
-        </div>
+        </Main>
 
     )
 
