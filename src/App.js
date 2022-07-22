@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Header, Main, Filter, ListaCarrinho, Footer, GlobalStyle } from './style';
-import { ListaDeProdutos } from './components/ListaDeProdutos';
-import { Carrinho } from './components/Carrinho';
+import { Container, Header, Footer, GlobalStyle } from './style';
+import { Main } from './components/Main';
 import logo from './img/logo.png'
 
 
@@ -22,7 +21,7 @@ function App() {
         <h1>AstroToys</h1>
       </Header>
 
-        <ListaDeProdutos />
+        <Main />
 
       <Footer>
         <p>&copy; 2022 AstroToys Ltda.</p>

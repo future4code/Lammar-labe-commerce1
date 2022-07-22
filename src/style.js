@@ -31,7 +31,7 @@ export const Header = styled.header`
 `
 
 
-export const Main = styled.main`
+export const MainContainer = styled.main`
     display: flex;
     flex: 1;
 
