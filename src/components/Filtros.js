@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filter } from '../style';
+import { Campo, Filter } from '../style';
 
 
 export const Filtros = ({ minValue, maxValue, nome, handleFilterMin, handleFilterMax, handleFilterNome }) => {
@@ -8,9 +8,18 @@ export const Filtros = ({ minValue, maxValue, nome, handleFilterMin, handleFilte
 
         <Filter>
             <h2>Filtros</h2>
-            <input placeholder='Min' type='number' value={minValue} onChange={handleFilterMin}/>
-            <input placeholder='Max' value={maxValue} type='number'onChange={handleFilterMax}/>
-            <input type='text' value={nome} onChange={handleFilterNome} />
+            <Campo>
+                <label for='nome'>Nome:</label>
+                <input name='nome' placeholder='Digite o nome do produto' type='text' value={nome} onChange={handleFilterNome} />
+            </Campo>
+            <Campo>
+                <label for='valormin'>Valor Mínimo:</label>
+                <input name='valormin' placeholder='Digite o valor mínimo' type='number' value={minValue} onChange={handleFilterMin} />
+            </Campo>
+            <Campo>
+                <label for='valormax'>Valor Máximo:</label>
+                <input name='valormax' placeholder='Digite o valor máximo' value={maxValue} type='number' onChange={handleFilterMax} />
+            </Campo>
         </Filter>
     )
 
