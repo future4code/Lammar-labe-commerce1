@@ -28,7 +28,7 @@ export const Carrinho = ({ arrayCarrinho, deletarProduto, valorTotal, addProduto
             <h2>Carrinho</h2>
             <div>{arrayCarrinho.length === 0 && <p>O carrinho está vazio.</p>}</div>
             {itensCarrinho}
-            {arrayCarrinho.length !== 0 && <SpanValor><span>Valor Total: </span><span>R$ {valorTotal}</span> </SpanValor>}
+            {arrayCarrinho.length !== 0 && <SpanValor><span>Valor Total: </span><span>R$ {valorTotal},00</span> </SpanValor>}
         </ListaCarrinho>
     )
 

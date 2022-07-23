@@ -127,7 +127,7 @@ export const Main = () => {
             <ContainerLista>
 
                 <HeaderCards>
-                    <span><b>Quantidade de Produtos: </b>{qtdProdutos}</span>
+                    <span>Mostrando <b>{qtdProdutos} de {arrayCards.length}</b> produtos</span>
                     <div>
                         <label><b>Ordenar por:</b></label>
                         <select value={selected} onChange={(e) => { setSelected(e.target.value) }}>

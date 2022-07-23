@@ -18,6 +18,7 @@ export const Header = styled.header`
     align-items: center;
     background-color: #3b6fff;
     color: #FFF;
+    box-shadow: 0 3px 6px 0 rgb(83 82 82);
     
     img {
         width: 60px;
@@ -28,7 +29,6 @@ export const Header = styled.header`
 export const MainContainer = styled.main`
     display: flex;
     flex: 1;
-    background-color: whitesmoke;
 
 `
 
@@ -48,6 +48,7 @@ export const Filter = styled.nav`
     align-items: center;
     width: 20%;
     margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     h2 {
         color: #3b6fff;
@@ -61,7 +62,7 @@ export const Campo = styled.div`
     flex-direction: column;
     align-items: flex-start;
     margin-top: 20px;
-    width: 100%;
+    width: 80%;
 
     label {
         display: block;
@@ -69,7 +70,7 @@ export const Campo = styled.div`
         font-weight: 700;
     }
     input {
-        border: 1px solid gray;
+        border: 1px solid #3b6fff;
         width: 100%;
         padding: 7px;
         border-radius: 6px;
@@ -89,6 +90,8 @@ export const ListaCarrinho = styled.aside`
     align-items: center;
     width: 20%;
     margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 15px;
 
     h2 {
         color: #3b6fff;
@@ -103,6 +106,7 @@ export const SpanValor = styled.aside`
     width: 100%;
     padding-top: 15px;
     font-weight: bold;
+    color: red;
 `
 
 
@@ -139,7 +143,7 @@ export const ItemCarrinho = styled.div`
     margin-bottom: 20px;
 
     img {
-        max-width: 70px;
+        max-width: 50px;
     }
 
 
@@ -174,7 +178,7 @@ export const CardStyle = styled.div`
     border: solid 1px;
     padding: 15px;
     margin: 10px;
-    max-width: 300px;
+    max-width: 250px;
 
 img {   
    height: 70%;
