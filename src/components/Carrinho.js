@@ -4,16 +4,9 @@ import { ListaCarrinho, ItemCarrinho } from '../style';
 
 export const Carrinho = ({ arrayCarrinho, deletarProduto, valorTotal }) => {
 
-
-
-
     // Rezaderizar itens do carrinho
 
     const itensCarrinho = arrayCarrinho.map((elemento) => {
-    
-
-        
-
         return (
             <ItemCarrinho key={elemento.id}>
                 <p>{elemento.nome}</p>

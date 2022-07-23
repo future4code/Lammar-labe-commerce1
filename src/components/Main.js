@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ListaCards, ContainerLista, HeaderCards, MainContainer } from '../style';
 import { Carrinho } from './Carrinho';
 import { Filtros } from './Filtros';
@@ -14,9 +14,9 @@ export const Main = () => {
         { value: 'Menor Preço' },
     ];
 
-    const [filterHandle, setFilterHandle] = useState('')
-    const [filterHandle2, setFilterHandle2] = useState('')
-    const [filterHandle3, setFilterHandle3] = useState('')
+    const [filterNome, setFilterNome] = useState('')
+    const [filterValorMax, setFilterValorMax] = useState('')
+    const [filterValorMin, setFilterValorMin] = useState('')
     const [selected, setSelected] = useState(options[1].value);
     const [arrayCarrinho, setArrayCarrinho] = useState([])
     const [valorTotal, setValorTotal] = useState(0)
@@ -24,22 +24,22 @@ export const Main = () => {
     // Filtros
 
     const arrayFiltrado = arrayCards.filter((item, index, array) => {
-        if (filterHandle === '') {
+        if (filterNome === '') {
             return array
         } else {
-            return item.nome.toLowerCase().includes(filterHandle.toLowerCase())
+            return item.nome.toLowerCase().includes(filterNome.toLowerCase())
         }
     }).filter((item, index, array) => {
-        if (filterHandle2 === '') {
+        if (filterValorMax === '') {
             return array
         } else {
-            return (item.valor <= filterHandle2)
+            return (item.valor <= filterValorMax)
         }
     }).filter((item, index, array) => {
-        if (filterHandle3 === '') {
+        if (filterValorMin === '') {
             return array
         } else {
-            return (item.valor >= filterHandle3)
+            return (item.valor >= filterValorMin)
         }
     })
 
@@ -75,7 +75,6 @@ export const Main = () => {
         }
     }
 
-
     // Quantidade de produtos
 
     const qtdProdutos = arrayFiltrado.length
@@ -90,7 +89,24 @@ export const Main = () => {
         orderedArray = arrayFiltrado.sort((a, b) => a.valor > b.valor ? 1 : -1)
     }
 
+    // useEffect
 
+
+    useEffect(
+        () => {
+            const retornoArrayCarrinho = JSON.parse(localStorage.getItem("arrayCarrinho"))
+            const retornoValorTotal = JSON.parse(localStorage.getItem("valorTotal"))
+            setArrayCarrinho(retornoArrayCarrinho)
+            setValorTotal(retornoValorTotal)
+        }, []
+    )
+
+    useEffect(
+        () => {
+            localStorage.setItem("arrayCarrinho", JSON.stringify(arrayCarrinho))
+            localStorage.setItem("valorTotal", JSON.stringify(valorTotal))
+        }, [arrayCarrinho, valorTotal]
+    )
 
 
     return (
@@ -98,12 +114,12 @@ export const Main = () => {
         <MainContainer>
 
             <Filtros
-                nome={filterHandle}
-                minValue={filterHandle3}
-                maxValue={filterHandle2}
-                handleFilterNome={(e) => { setFilterHandle(e.target.value) }}
-                handleFilterMin={(e) => { setFilterHandle3(e.target.value) }}
-                handleFilterMax={(e) => { setFilterHandle2(e.target.value) }}
+                nome={filterNome}
+                minValue={filterValorMin}
+                maxValue={filterValorMax}
+                handleFilterNome={(e) => { setFilterNome(e.target.value) }}
+                handleFilterMin={(e) => { setFilterValorMin(e.target.value) }}
+                handleFilterMax={(e) => { setFilterValorMax(e.target.value) }}
             />
 
             <ContainerLista>
