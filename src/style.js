@@ -54,6 +54,7 @@ export const Filter = styled.nav`
     align-items: center;
     width: 20%;
     margin: 20px;
+    padding: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     h2 {
@@ -87,7 +88,7 @@ export const Campo = styled.div`
 export const ListaCards = styled.div`
     display: flex;
     flex-wrap: wrap; 
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
 `
 
@@ -104,16 +105,21 @@ export const ListaCarrinho = styled.aside`
         color: #3b6fff;
         font-size: 1.7rem;
     }    
+
+    .vazio {
+        margin-top: 10px;
+    }
 `
 
 export const SpanValor = styled.aside`
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid #D3D3D3;
+    border-top: 1px solid rgba(59, 111, 255, 0.6);
     width: 100%;
     padding-top: 15px;
     font-weight: bold;
-    color: red;
+    color: black;
+    margin-top: 10px;
 `
 
 
@@ -144,20 +150,32 @@ export const HeaderCards = styled.div`
 
 export const ItemCarrinho = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin: 10px 0px;
+    border: solid 1px rgba(59, 111, 255, 0.6);
 
     img {
-        max-width: 50px;
+        width: 150px;
+        margin-top: 10px;
     }
+
+    p {
+        margin-top: 10px;
+    }
+
+    
+
+
 
 
 `
 export const Contador = styled.div`
     border: 1px solid #D3D3D3;
     border-radius: 5px;
+    margin: 15px;
 
     button {
     background: transparent;
@@ -184,10 +202,10 @@ export const CardStyle = styled.div`
     flex-direction: column;
     align-items: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 220px;
-    margin-top: 15px;
+    width: 250px;
+    margin-top: 11px;
     margin-left: 15px;
-    margin-bottom: 15px;
+    
 
     img {
         height: 70%;
