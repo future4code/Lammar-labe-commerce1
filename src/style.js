@@ -121,7 +121,7 @@ export const SpanValor = styled.aside`
 export const ContainerLista = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 60%;
     margin: 20px;
 
@@ -137,7 +137,7 @@ export const HeaderCards = styled.div`
 
     select {
         border: 1px solid gray;
-        padding: 7px;
+        padding: 3px;
         border-radius: 6px;
     }
 `
