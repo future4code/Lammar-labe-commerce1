@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ListaCarrinho, ItemCarrinho } from '../style';
+import { ListaCarrinho, ItemCarrinho, Contador, SpanValor } from '../style';
 
 
 export const Carrinho = ({ arrayCarrinho, deletarProduto, valorTotal, addProduto }) => {
@@ -9,14 +9,14 @@ export const Carrinho = ({ arrayCarrinho, deletarProduto, valorTotal, addProduto
     const itensCarrinho = arrayCarrinho.map((elemento) => {
         return (
             <ItemCarrinho key={elemento.id}>
-                <img src={elemento.img}/>
+                <img src={elemento.img} />
                 <p>{elemento.nome}</p>
-                <p>{(elemento.valor)*(elemento.qtd)}</p>
-                <div>
-                <button onClick={() => deletarProduto(elemento)}><i class="fa fa-minus"></i></button>
-                <span>{elemento.qtd}</span>
-                <button onClick={() => addProduto(elemento)}><i class="fa fa-plus"></i></button>
-                </div>
+                <p>R$ {(elemento.valor) * (elemento.qtd)},00</p>
+                <Contador>
+                    <button onClick={() => deletarProduto(elemento)}><i class="fa fa-minus"></i></button>
+                    <span>{elemento.qtd}</span>
+                    <button onClick={() => addProduto(elemento)}><i class="fa fa-plus"></i></button>
+                </Contador>
             </ItemCarrinho>
         )
     })
@@ -28,7 +28,7 @@ export const Carrinho = ({ arrayCarrinho, deletarProduto, valorTotal, addProduto
             <h2>Carrinho</h2>
             <div>{arrayCarrinho.length === 0 && <p>O carrinho está vazio.</p>}</div>
             {itensCarrinho}
-            {arrayCarrinho.length !== 0 && <span>Valor Total: {valorTotal} </span>}
+            {arrayCarrinho.length !== 0 && <SpanValor><span>Valor Total: </span><span>R$ {valorTotal}</span> </SpanValor>}
         </ListaCarrinho>
     )
 

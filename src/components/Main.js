@@ -127,9 +127,9 @@ export const Main = () => {
             <ContainerLista>
 
                 <HeaderCards>
-                    <span>Quantidade de Produtos: {qtdProdutos}</span>
+                    <span><b>Quantidade de Produtos: </b>{qtdProdutos}</span>
                     <div>
-                        <label>Ordenar por:</label>
+                        <label><b>Ordenar por:</b></label>
                         <select value={selected} onChange={(e) => { setSelected(e.target.value) }}>
                             {options.map((option, index) => (
                                 <option key={index} value={option.value}>

@@ -4,13 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    img {
-        width: 200px;
-    }
-
 `
-
 
 export const Container = styled.div`
     display: flex;
@@ -18,11 +12,12 @@ export const Container = styled.div`
     min-height: 100vh;
 `
 
-
 export const Header = styled.header`
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #3b6fff;
+    color: #FFF;
     
     img {
         width: 60px;
@@ -30,10 +25,20 @@ export const Header = styled.header`
     }
 `
 
-
 export const MainContainer = styled.main`
     display: flex;
     flex: 1;
+    background-color: whitesmoke;
+
+`
+
+export const Footer = styled.footer`
+    display: flex;
+    justify-content: center;
+    top: 100%;
+    position: sticky;
+    background-color: #3b6fff;
+    font-weight: 500;
 
 `
 
@@ -43,18 +48,39 @@ export const Filter = styled.nav`
     align-items: center;
     width: 20%;
     margin: 20px;
-    border: 1px solid black;
 
-    input {
-        width: 70%;
-        margin: 10px 0;
+    h2 {
+        color: #3b6fff;
+        font-size: 1.7rem;
     }
 
 `
 
+export const Campo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100%;
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+    input {
+        border: 1px solid gray;
+        width: 100%;
+        padding: 7px;
+        border-radius: 6px;
+    }
+
+` 
+
 export const ListaCards = styled.div`
     display: flex;
-    flex-wrap: wrap;    
+    flex-wrap: wrap; 
+    width: 100%;
 `
 
 export const ListaCarrinho = styled.aside`
@@ -63,23 +89,30 @@ export const ListaCarrinho = styled.aside`
     align-items: center;
     width: 20%;
     margin: 20px;
-    border: 1px solid black;
-    
+
+    h2 {
+        color: #3b6fff;
+        font-size: 1.7rem;
+    }    
 `
 
-export const Footer = styled.footer`
+export const SpanValor = styled.aside`
     display: flex;
-    justify-content: center;
-    top: 100%;
-    position: sticky;
-
+    justify-content: space-between;
+    border-top: 1px solid #D3D3D3;
+    width: 100%;
+    padding-top: 15px;
+    font-weight: bold;
 `
+
+
 
 export const ContainerLista = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 60%;
-    margin: 20px 50px;
+    margin: 20px;
 
 `
 export const HeaderCards = styled.div`
@@ -87,48 +120,69 @@ export const HeaderCards = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    label {
+        margin-right: 10px;
+    }
+
+    select {
+        border: 1px solid gray;
+        padding: 7px;
+        border-radius: 6px;
+    }
 `
 
 export const ItemCarrinho = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
 
     img {
-        width: 100px;
+        max-width: 70px;
     }
 
-    div {
-        border: solid 1px;
-        color: gray;
-    }
+
+`
+export const Contador = styled.div`
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
 
     button {
     background: transparent;
+    cursor: pointer;    
+    padding: 15px;
     border: none !important;
-    cursor: pointer;
-    margin: 15px;
+    }
 
     i {
       font-size: 10px;
       color: gray;
     }
     
-}
+    span {
+        display: inline-block;
+        text-align: center;
+        width: 40px;
+    }
 
 `
 
 export const CardStyle = styled.div`
+    display: flex;
+    flex-direction: column;
+    border: solid 1px;
+    padding: 15px;
+    margin: 10px;
+    max-width: 300px;
 
-border: solid 1px;
-padding: 15px;
-margin: 10px;
-
-img {
-    
-   
+img {   
+   height: 70%;
+   width: 100%;
 
 }
 
 `
+
+
 
