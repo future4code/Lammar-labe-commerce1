@@ -11,7 +11,7 @@ export const Carrinho = ({ arrayCarrinho, deletarProduto, valorTotal, addProduto
             <ItemCarrinho key={elemento.id}>
                 <img src={elemento.img} />
                 <p>{elemento.nome}</p>
-                <p>R$ {(elemento.valor) * (elemento.qtd)},00</p>
+                <p>R$ {((elemento.valor) * (elemento.qtd)).toFixed(2)}</p>
                 <Contador>
                     <button onClick={() => deletarProduto(elemento)}><i class="fa fa-minus"></i></button>
                     <span>{elemento.qtd}</span>
@@ -28,7 +28,7 @@ export const Carrinho = ({ arrayCarrinho, deletarProduto, valorTotal, addProduto
             <h2>Carrinho</h2>
             <div>{arrayCarrinho.length === 0 && <p>O carrinho está vazio.</p>}</div>
             {itensCarrinho}
-            {arrayCarrinho.length !== 0 && <SpanValor><span>Valor Total: </span><span>R$ {valorTotal},00</span> </SpanValor>}
+            {arrayCarrinho.length !== 0 && <SpanValor><span>Valor Total: </span><span>R$ {valorTotal.toFixed(2)}</span> </SpanValor>}
         </ListaCarrinho>
     )
 

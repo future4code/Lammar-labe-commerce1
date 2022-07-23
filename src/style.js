@@ -1,9 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 `
 
 export const Container = styled.div`
@@ -39,6 +41,10 @@ export const Footer = styled.footer`
     position: sticky;
     background-color: #3b6fff;
     font-weight: 500;
+
+    p {
+        margin: 5px;
+    }
 
 `
 
@@ -76,11 +82,12 @@ export const Campo = styled.div`
         border-radius: 6px;
     }
 
-` 
+`
 
 export const ListaCards = styled.div`
     display: flex;
     flex-wrap: wrap; 
+    justify-content: center;
     width: 100%;
 `
 
@@ -175,16 +182,72 @@ export const Contador = styled.div`
 export const CardStyle = styled.div`
     display: flex;
     flex-direction: column;
-    border: solid 1px;
-    padding: 15px;
-    margin: 10px;
-    max-width: 250px;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 220px;
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
 
-img {   
-   height: 70%;
-   width: 100%;
+    img {
+        height: 70%;
+        width: 70%;
+        margin: 10px 0px;
 
-}
+    }
+
+    h3 {
+            margin: 5px;
+        }
+
+    div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: whitesmoke;
+        width: 100%;
+
+        div {
+            margin: 5px;
+            span {
+            align-self: flex-start;
+            margin-left: 6px;
+            color: #4FCC46;
+            font-weight: 650;
+
+        }
+
+        p {
+            align-self: flex-start;
+            margin-left: 6px;
+            font-size: 12px;
+        }
+
+        .crossed {
+            text-decoration: line-through;
+            font-size: 10px;
+            color: red;
+        }
+        }
+
+        button {
+        border: none;
+        outline: 0;
+        padding: 8px;
+        color: white;
+        background-color: #3b6fff;
+        text-align: center;
+        cursor: pointer;
+        width: 70%;
+        font-size: 14px;
+        border-radius: 5px;
+        margin: 10px;
+        
+    }
+        button:hover {
+            opacity: 0.8;
+        }
+    }
 
 `
 
