@@ -10,14 +10,14 @@ import { Card } from './Card';
 export const Main = () => {
 
     const options = [
-        { value: 'Maior Preço' },
         { value: 'Menor Preço' },
+        { value: 'Maior Preço' },
     ];
 
     const [filterNome, setFilterNome] = useState('')
     const [filterValorMax, setFilterValorMax] = useState('')
     const [filterValorMin, setFilterValorMin] = useState('')
-    const [selected, setSelected] = useState(options[1].value);
+    const [selected, setSelected] = useState(options[0].value);
     const [arrayCarrinho, setArrayCarrinho] = useState([])
     const [valorTotal, setValorTotal] = useState(0)
 
@@ -108,6 +108,8 @@ export const Main = () => {
         }, [arrayCarrinho, valorTotal]
     )
 
+    
+
 
     return (
 
@@ -152,7 +154,7 @@ export const Main = () => {
 
             </ContainerLista>
 
-            <Carrinho arrayCarrinho={arrayCarrinho} deletarProduto={deletarProduto} valorTotal={valorTotal} />
+            <Carrinho arrayCarrinho={arrayCarrinho} addProduto={addProduto} deletarProduto={deletarProduto} valorTotal={valorTotal} />
 
         </MainContainer>
 
