@@ -95,7 +95,7 @@ export const Main = () => {
     useEffect(
         () => {
             const retornoArrayCarrinho = JSON.parse(localStorage.getItem("arrayCarrinho"))
-            const retornoValorTotal = JSON.parse(localStorage.getItem("valorTotal"))
+            const retornoValorTotal = parseFloat(localStorage.getItem("valorTotal"))
             setArrayCarrinho(retornoArrayCarrinho)
             setValorTotal(retornoValorTotal)
         }, []
