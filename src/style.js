@@ -40,6 +40,7 @@ export const MainContainer = styled.main`
 export const Filter = styled.nav`
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 20%;
     margin: 20px;
     border: 1px solid black;
@@ -59,6 +60,7 @@ export const ListaCards = styled.div`
 export const ListaCarrinho = styled.aside`
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 20%;
     margin: 20px;
     border: 1px solid black;
@@ -91,6 +93,42 @@ export const ItemCarrinho = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    img {
+        width: 100px;
+    }
+
+    div {
+        border: solid 1px;
+        color: gray;
+    }
+
+    button {
+    background: transparent;
+    border: none !important;
+    cursor: pointer;
+    margin: 15px;
+
+    i {
+      font-size: 10px;
+      color: gray;
+    }
+    
+}
+
+`
+
+export const CardStyle = styled.div`
+
+border: solid 1px;
+padding: 15px;
+margin: 10px;
+
+img {
+    
+   
+
+}
 
 `
 
