@@ -17,11 +17,11 @@ function App() {
       <GlobalStyle />
 
       <Header>
-        <img src={logo}/>
+        <img src={logo} />
         <h1>AstroToys</h1>
       </Header>
 
-        <Main />
+      <Main />
 
       <Footer>
         <p>&copy; 2022 AstroToys Ltda.</p>
