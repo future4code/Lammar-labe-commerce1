@@ -9,7 +9,7 @@
 - Ao recarregar a página os itens do carrinho são mantidos.
 
 ### Link Surge
-https://hard-can.surge.sh/
+https://axiomatic-idea.surge.sh/
 
 ### Imagens
 ![1](https://user-images.githubusercontent.com/102267210/180625467-f3b7e44c-191c-4aad-9f97-d4ad5da5a2e2.png)
