@@ -12,7 +12,6 @@
 https://axiomatic-idea.surge.sh/
 
 ### Imagens
-![1](https://user-images.githubusercontent.com/102267210/180625467-f3b7e44c-191c-4aad-9f97-d4ad5da5a2e2.png)
-![2](https://user-images.githubusercontent.com/102267210/180625468-06bd3036-7b72-4270-ad61-c242dc27a700.png)
-
+![1](https://user-images.githubusercontent.com/102267210/180664101-bd1f9a4f-11ca-435c-85ea-2fd81dc82896.png)
+![2](https://user-images.githubusercontent.com/102267210/180664099-3bf3050d-9f01-4d03-b4f2-fd9e02f1383b.png)
 
